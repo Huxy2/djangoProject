@@ -15,12 +15,14 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from TestDevelopment.views import index, index1, my_name, test_method
+
+from TestDevelopment import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', index),
-    path('index1/', index1),
-    path('name/', my_name),
-    path('method/', test_method),
+    path('index/', views.index),
+    path('index1/', views.index1),
+    path('name/', views.my_name),
+    path('method/', views.test_method),
+    path('index3/',views.MyView.as_view())
 ]
