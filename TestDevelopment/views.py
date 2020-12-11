@@ -39,7 +39,8 @@ def test_method(request):
 class MyView(View):
 
     def get(self, request):
-        return HttpResponse('get请求')
+        # return HttpResponse('get请求')
+        return render(request, 'demo.html')
 
     def post(self, request):
         return HttpResponse('post请求')
