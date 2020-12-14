@@ -1,6 +1,7 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.views import View
+
 
 
 # Create your views here.
@@ -40,7 +41,20 @@ class MyView(View):
 
     def get(self, request):
         # return HttpResponse('get请求')
-        return render(request, 'demo.html')
+        data = [
+            {
+                'project_name': '天宫二号',
+                'leader': '科研人',
+                'app_name': '探月',
+            },
+            {
+                'project_name': '测试开发平台',
+                'leader': '大头',
+                'app_name': '代码应用',
+            },
+        ]
+        # return render(request, 'demo1.html', locals())
+        return JsonResponse(data, safe=False)
 
     def post(self, request):
         return HttpResponse('post请求')
